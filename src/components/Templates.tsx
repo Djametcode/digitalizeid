@@ -1,56 +1,63 @@
 import { motion } from 'framer-motion'
-import { Heart, Calendar, Users } from 'lucide-react'
 import './Templates.css'
 
 export default function Templates() {
   const templates = [
     {
       id: 1,
-      name: 'Romantic Blush',
+      name: 'Romantic Garden',
       category: 'Pernikahan',
-      icon: <Heart size={20} />,
-      gradient: 'linear-gradient(135deg, #ffeef8 0%, #ffe0f0 100%)',
-      preview: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=600&fit=crop',
+      image: '/images/templates/t1.jpg',
+      price: 'Rp 149K',
     },
     {
       id: 2,
-      name: 'Modern Elegance',
+      name: 'Modern Minimalist',
       category: 'Pernikahan',
-      icon: <Heart size={20} />,
-      gradient: 'linear-gradient(135deg, #e8f4f8 0%, #d4e8f0 100%)',
-      preview: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=600&fit=crop',
+      image: '/images/templates/t2.jpg',
+      price: 'Rp 149K',
     },
     {
       id: 3,
-      name: 'Birthday Celebration',
-      category: 'Ulang Tahun',
-      icon: <Calendar size={20} />,
-      gradient: 'linear-gradient(135deg, #fff8e1 0%, #ffe9b3 100%)',
-      preview: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=600&fit=crop',
+      name: 'Classic Elegance',
+      category: 'Pernikahan',
+      image: '/images/templates/t3.jpg',
+      price: 'Rp 149K',
     },
     {
       id: 4,
-      name: 'Corporate Event',
-      category: 'Event',
-      icon: <Users size={20} />,
-      gradient: 'linear-gradient(135deg, #f0f0f5 0%, #e0e0eb 100%)',
-      preview: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=400&h=600&fit=crop',
+      name: 'Rustic Charm',
+      category: 'Pernikahan',
+      image: '/images/templates/t4.jpg',
+      price: 'Rp 149K',
     },
     {
       id: 5,
-      name: 'Garden Wedding',
+      name: 'Bohemian Dream',
       category: 'Pernikahan',
-      icon: <Heart size={20} />,
-      gradient: 'linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)',
-      preview: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&h=600&fit=crop',
+      image: '/images/templates/t5.jpg',
+      price: 'Rp 149K',
     },
     {
       id: 6,
-      name: 'Minimalist Chic',
+      name: 'Luxury Gold',
       category: 'Pernikahan',
-      icon: <Heart size={20} />,
-      gradient: 'linear-gradient(135deg, #fafafa 0%, #eeeeee 100%)',
-      preview: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=600&fit=crop',
+      image: '/images/templates/t6.jpg',
+      price: 'Rp 199K',
+    },
+    {
+      id: 7,
+      name: 'Floral Bliss',
+      category: 'Pernikahan',
+      image: '/images/templates/t7.jpg',
+      price: 'Rp 149K',
+    },
+    {
+      id: 8,
+      name: 'Timeless White',
+      category: 'Pernikahan',
+      image: '/images/templates/t8.jpg',
+      price: 'Rp 149K',
     },
   ]
 
@@ -65,10 +72,10 @@ export default function Templates() {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      scale: 1,
+      y: 0,
       transition: { duration: 0.5 },
     },
   }
@@ -83,10 +90,10 @@ export default function Templates() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">
-            Template <span className="gradient-text">Premium</span>
+            Template <span className="accent script">Pilihan</span>
           </h2>
           <p className="section-subtitle">
-            Pilih dari koleksi template yang dirancang khusus untuk momen spesialmu
+            Desain yang dibuat khusus untuk momen spesial kalian. Setiap template bisa dikustomisasi sesuai keinginan.
           </p>
         </motion.div>
 
@@ -100,22 +107,21 @@ export default function Templates() {
           {templates.map((template) => (
             <motion.div
               key={template.id}
-              className="template-card glass"
+              className="template-card"
               variants={itemVariants}
-              whileHover={{ y: -8 }}
             >
-              <div className="template-preview" style={{ background: template.gradient }}>
-                <img src={template.preview} alt={template.name} loading="lazy" />
+              <div className="template-image">
+                <img src={template.image} alt={template.name} loading="lazy" />
                 <div className="template-overlay">
                   <button className="btn btn-primary btn-sm">Lihat Demo</button>
                 </div>
               </div>
               <div className="template-info">
-                <div className="template-category">
-                  {template.icon}
-                  <span>{template.category}</span>
+                <div className="template-header">
+                  <h3 className="template-name">{template.name}</h3>
+                  <span className="template-price">{template.price}</span>
                 </div>
-                <h3 className="template-name">{template.name}</h3>
+                <span className="template-category">{template.category}</span>
               </div>
             </motion.div>
           ))}
@@ -128,7 +134,8 @@ export default function Templates() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <button className="btn btn-primary">Lihat Semua Template</button>
+          <p className="cta-text">Tidak menemukan yang cocok?</p>
+          <button className="btn btn-outline">Request Custom Design</button>
         </motion.div>
       </div>
     </section>

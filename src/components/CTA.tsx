@@ -19,7 +19,7 @@ export default function CTA({ setActiveSection }: CTAProps) {
     <section className="cta">
       <div className="container">
         <motion.div
-          className="cta-card glass-strong"
+          className="cta-card"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -27,11 +27,10 @@ export default function CTA({ setActiveSection }: CTAProps) {
         >
           <div className="cta-content">
             <h2 className="cta-title">
-              Siap Membuat Undangan <span className="gradient-text">Impianmu?</span>
+              Siap Membuat Undangan <span className="accent script">Impian Kalian?</span>
             </h2>
             <p className="cta-subtitle">
-              Bergabung dengan 10,000+ pengguna yang telah mempercayai digitalizeID
-              untuk momen spesial mereka
+              Bergabung dengan 2,500+ pasangan yang telah mempercayai digitalizeID untuk momen spesial mereka
             </p>
             <div className="cta-buttons">
               <button
@@ -41,14 +40,11 @@ export default function CTA({ setActiveSection }: CTAProps) {
                 Mulai Sekarang
                 <ArrowRight size={18} />
               </button>
-              <button className="btn btn-glass">
+              <button className="btn btn-outline">
                 Lihat Demo
               </button>
             </div>
           </div>
-
-          <div className="cta-decoration decoration-1" />
-          <div className="cta-decoration decoration-2" />
         </motion.div>
       </div>
     </section>

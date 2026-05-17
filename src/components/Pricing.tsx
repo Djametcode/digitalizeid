@@ -1,27 +1,25 @@
 import { motion } from 'framer-motion'
-import { Check, Sparkles } from 'lucide-react'
 import './Pricing.css'
 
 export default function Pricing() {
   const plans = [
     {
       name: 'Starter',
-      price: '99K',
+      price: '99',
       period: 'sekali bayar',
-      description: 'Cocok untuk acara kecil dan sederhana',
+      description: 'Cocok untuk acara sederhana',
       features: [
         '1 Template Premium',
         'Unlimited Tamu',
         'RSVP & Konfirmasi',
         'Google Maps',
-        'Background Music',
         'Aktif 30 hari',
       ],
-      popular: false,
+      featured: false,
     },
     {
       name: 'Premium',
-      price: '199K',
+      price: '199',
       period: 'sekali bayar',
       description: 'Pilihan terbaik untuk acara spesial',
       features: [
@@ -34,15 +32,14 @@ export default function Pricing() {
         'Photo Gallery',
         'Custom Domain',
         'Aktif 90 hari',
-        'Revisi Unlimited',
       ],
-      popular: true,
+      featured: true,
     },
     {
       name: 'Enterprise',
       price: 'Custom',
       period: 'hubungi kami',
-      description: 'Untuk event besar dan korporat',
+      description: 'Untuk event besar & korporat',
       features: [
         'Semua Fitur Premium',
         'Custom Design',
@@ -52,7 +49,7 @@ export default function Pricing() {
         'White Label',
         'Aktif Selamanya',
       ],
-      popular: false,
+      featured: false,
     },
   ]
 
@@ -66,10 +63,10 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="section-title">
-            Harga <span className="gradient-text">Terjangkau</span>
+            Harga <span className="accent script">Terjangkau</span>
           </h2>
           <p className="section-subtitle">
-            Pilih paket yang sesuai dengan kebutuhanmu
+            Pilih paket yang sesuai dengan kebutuhan dan budget kalian
           </p>
         </motion.div>
 
@@ -77,38 +74,34 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              className={`pricing-card glass ${plan.popular ? 'popular' : ''}`}
+              className={`pricing-card ${plan.featured ? 'featured' : ''}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              {plan.popular && (
-                <div className="popular-badge">
-                  <Sparkles size={14} />
-                  <span>Paling Populer</span>
-                </div>
-              )}
+              {plan.featured && <div className="pricing-badge">Paling Populer</div>}
 
               <div className="pricing-header">
-                <h3 className="plan-name">{plan.name}</h3>
-                <div className="plan-price">
-                  <span className="price">{plan.price}</span>
-                  <span className="period">/{plan.period}</span>
+                <h3 className="pricing-name">{plan.name}</h3>
+                <div className="pricing-price">
+                  <span className="pricing-price-currency">Rp </span>
+                  {plan.price}K
                 </div>
-                <p className="plan-description">{plan.description}</p>
+                <div className="pricing-period">{plan.period}</div>
+                <p className="pricing-description">{plan.description}</p>
               </div>
 
-              <ul className="features-list">
+              <ul className="pricing-features">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="feature-item">
-                    <Check size={18} className="check-icon" />
+                  <li key={i} className="pricing-feature">
+                    <span className="check-icon">✓</span>
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <button className={`btn ${plan.popular ? 'btn-primary' : 'btn-glass'} btn-full`}>
+              <button className={`btn pricing-cta ${plan.featured ? 'btn-secondary' : 'btn-primary'}`}>
                 {plan.price === 'Custom' ? 'Hubungi Kami' : 'Pilih Paket'}
               </button>
             </motion.div>

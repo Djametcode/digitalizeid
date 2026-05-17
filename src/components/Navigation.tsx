@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './Navigation.css'
@@ -10,6 +10,15 @@ interface NavigationProps {
 
 export default function Navigation({ activeSection, setActiveSection }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navItems = [
     { id: 'home', label: 'Beranda' },
@@ -29,15 +38,15 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
 
   return (
     <motion.nav
-      className="navbar glass-strong"
+      className={`navbar ${scrolled ? 'scrolled' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container navbar-container">
-        <div className="navbar-brand">
-          <span className="brand-icon">✨</span>
-          <span className="brand-text">digitalizeID</span>
+        <div className="navbar-brand" onClick={() => scrollToSection('home')}>
+          <span className="brand-icon">💐</span>
+          <span>digitalizeID</span>
         </div>
 
         <div className="navbar-menu">
@@ -53,8 +62,8 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
         </div>
 
         <div className="navbar-actions">
-          <button className="btn btn-glass">Masuk</button>
-          <button className="btn btn-primary">Mulai Gratis</button>
+          <button className="btn btn-secondary">Masuk</button>
+          <button className="btn btn-primary">Buat Undangan</button>
         </div>
 
         <button
@@ -81,8 +90,8 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
               {item.label}
             </button>
           ))}
-          <button className="btn btn-primary" style={{ width: '100%' }}>
-            Mulai Gratis
+          <button className="btn btn-primary" style={{ width: '100%', marginTop: '12px' }}>
+            Buat Undangan
           </button>
         </motion.div>
       )}
