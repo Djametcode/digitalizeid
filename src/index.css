@@ -150,11 +150,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-script);
   font-style: italic;
   font-weight: 400;
-  color: var(--accent);
+  color: var(--accent-hover);
+  font-size: 1.05em;
 }
 
 .accent {
-  color: var(--accent);
+  color: var(--accent-hover);
+  font-weight: 600;
 }
 
 /* Buttons - Modern with proper hover states */
