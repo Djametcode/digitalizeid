@@ -13,8 +13,10 @@ export default function MusicPlayer({ autoplay = true }: MusicPlayerProps) {
 
   useEffect(() => {
     if (autoplay && audioRef.current) {
-      // Try to autoplay (may be blocked by browser)
-      audioRef.current.play().catch(() => {
+      // Auto-play after user interaction (button click)
+      audioRef.current.play().then(() => {
+        setIsPlaying(true)
+      }).catch(() => {
         setIsPlaying(false)
       })
     }

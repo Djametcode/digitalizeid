@@ -13,11 +13,17 @@ export default function DemoTemplate() {
   const [message, setMessage] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  const [musicReady, setMusicReady] = useState(false)
 
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: containerRef })
   const heroY = useTransform(scrollYProgress, [0, 0.3], [0, 200])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.3])
+
+  const handleOpenInvitation = () => {
+    setIsOpen(true)
+    setMusicReady(true)
+  }
 
   // Wedding date countdown
   useEffect(() => {
@@ -85,7 +91,7 @@ export default function DemoTemplate() {
           </div>
           <p className="cover-guest-label">Kepada Yth. Bapak/Ibu/Saudara/i</p>
           <p className="cover-guest-name">Tamu Undangan</p>
-          <button className="btn-open-invitation" onClick={() => setIsOpen(true)}>
+          <button className="btn-open-invitation" onClick={handleOpenInvitation}>
             <Heart size={16} fill="white" />
             Buka Undangan
           </button>
@@ -96,7 +102,7 @@ export default function DemoTemplate() {
 
   return (
     <div className="demo-template" ref={containerRef}>
-      <MusicPlayer autoplay={true} />
+      <MusicPlayer autoplay={musicReady} />
       {/* Hero with Parallax */}
       <section className="demo-hero">
         <motion.div className="demo-hero-bg" style={{ y: heroY, opacity: heroOpacity }}>
