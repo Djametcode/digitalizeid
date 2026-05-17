@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Heart, MapPin, Calendar, Users, Gift, MessageCircle, ChevronDown } from 'lucide-react'
+import { Heart, MapPin, Calendar, Users, ChevronDown } from 'lucide-react'
 import './DemoTemplate.css'
 
 export default function DemoTemplate() {
   const [activeTab, setActiveTab] = useState('cover')
-  const [rsvpOpen, setRsvpOpen] = useState(false)
   const [guestName, setGuestName] = useState('')
   const [guestCount, setGuestCount] = useState(1)
 
