@@ -1,61 +1,62 @@
 import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
 import './Templates.css'
 
 export default function Templates() {
   const templates = [
     {
-      id: 1,
-      name: 'Romantic Garden',
-      category: 'Pernikahan',
+      id: 'golden-elegance',
+      name: 'Golden Elegance',
+      category: 'Luxury',
       image: '/images/templates/t1.jpg',
       price: 'Rp 149K',
     },
     {
-      id: 2,
+      id: 'modern-minimalist',
       name: 'Modern Minimalist',
-      category: 'Pernikahan',
+      category: 'Contemporary',
       image: '/images/templates/t2.jpg',
       price: 'Rp 149K',
     },
     {
-      id: 3,
-      name: 'Classic Elegance',
-      category: 'Pernikahan',
+      id: 'classic-romance',
+      name: 'Classic Romance',
+      category: 'Traditional',
       image: '/images/templates/t3.jpg',
       price: 'Rp 149K',
     },
     {
-      id: 4,
+      id: 'rustic-charm',
       name: 'Rustic Charm',
-      category: 'Pernikahan',
+      category: 'Natural',
       image: '/images/templates/t4.jpg',
       price: 'Rp 149K',
     },
     {
-      id: 5,
+      id: 'bohemian-dream',
       name: 'Bohemian Dream',
-      category: 'Pernikahan',
+      category: 'Artistic',
       image: '/images/templates/t5.jpg',
       price: 'Rp 149K',
     },
     {
-      id: 6,
-      name: 'Luxury Gold',
-      category: 'Pernikahan',
+      id: 'royal-luxury',
+      name: 'Royal Luxury',
+      category: 'Premium',
       image: '/images/templates/t6.jpg',
       price: 'Rp 199K',
     },
     {
-      id: 7,
+      id: 'floral-bliss',
       name: 'Floral Bliss',
-      category: 'Pernikahan',
+      category: 'Garden',
       image: '/images/templates/t7.jpg',
       price: 'Rp 149K',
     },
     {
-      id: 8,
+      id: 'timeless-white',
       name: 'Timeless White',
-      category: 'Pernikahan',
+      category: 'Classic',
       image: '/images/templates/t8.jpg',
       price: 'Rp 149K',
     },
@@ -89,11 +90,12 @@ export default function Templates() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <span className="section-eyebrow">100+ Template Premium</span>
           <h2 className="section-title">
-            Template <span className="accent script">Pilihan</span>
+            Pilih <span className="script">Desain Favorit</span> Anda
           </h2>
           <p className="section-subtitle">
-            Desain yang dibuat khusus untuk momen spesial kalian. Setiap template bisa dikustomisasi sesuai keinginan.
+            Setiap template dirancang dengan detail dan bisa dikustomisasi sesuai keinginan Anda
           </p>
         </motion.div>
 
@@ -113,15 +115,25 @@ export default function Templates() {
               <div className="template-image">
                 <img src={template.image} alt={template.name} loading="lazy" />
                 <div className="template-overlay">
-                  <button className="btn btn-primary btn-sm">Lihat Demo</button>
+                  <a
+                    href={`/demo/${template.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary btn-sm"
+                  >
+                    <ExternalLink size={16} />
+                    Lihat Demo
+                  </a>
                 </div>
               </div>
               <div className="template-info">
                 <div className="template-header">
-                  <h3 className="template-name">{template.name}</h3>
+                  <div>
+                    <h3 className="template-name">{template.name}</h3>
+                    <span className="template-category">{template.category}</span>
+                  </div>
                   <span className="template-price">{template.price}</span>
                 </div>
-                <span className="template-category">{template.category}</span>
               </div>
             </motion.div>
           ))}
@@ -135,7 +147,7 @@ export default function Templates() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p className="cta-text">Tidak menemukan yang cocok?</p>
-          <button className="btn btn-outline">Request Custom Design</button>
+          <button className="btn btn-ghost">Request Custom Design</button>
         </motion.div>
       </div>
     </section>

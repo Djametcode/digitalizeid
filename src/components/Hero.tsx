@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Play } from 'lucide-react'
 import './Hero.css'
 
 interface HeroProps {
@@ -25,41 +25,42 @@ export default function Hero({ setActiveSection }: HeroProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="hero-eyebrow">Undangan Digital Modern</div>
+            <div className="hero-eyebrow">✨ Undangan Digital #1 Indonesia</div>
             <h1 className="hero-title">
-              Ceritakan Kisah Cinta Kalian dengan <span className="accent script">Elegan</span>
+              Wujudkan Undangan <span className="script">Impian</span> dalam 10 Menit
             </h1>
             <p className="hero-description">
-              Buat undangan pernikahan digital yang berkesan. Desain indah, mudah dibagikan, 
-              dan dilengkapi fitur lengkap untuk hari spesial kalian.
+              Buat undangan pernikahan digital yang elegan dan berkesan. Ratusan template premium, 
+              fitur lengkap, dan mudah dibagikan ke semua tamu undangan.
             </p>
             <div className="hero-buttons">
               <button
-                className="btn btn-primary"
+                className="btn btn-primary btn-lg"
                 onClick={() => scrollToSection('templates')}
               >
-                Lihat Template
+                Buat Undangan Gratis
                 <ArrowRight size={18} />
               </button>
               <button
-                className="btn btn-outline"
-                onClick={() => scrollToSection('pricing')}
+                className="btn btn-outline btn-lg"
+                onClick={() => window.open('/demo/golden-elegance', '_blank')}
               >
-                Mulai Gratis
+                <Play size={18} />
+                Lihat Demo
               </button>
             </div>
 
             <div className="hero-stats">
               <div className="stat-item">
-                <span className="stat-number">2,500+</span>
+                <span className="stat-number">15K+</span>
                 <span className="stat-label">Pasangan Bahagia</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">50+</span>
+                <span className="stat-number">100+</span>
                 <span className="stat-label">Template Premium</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">4.9/5</span>
+                <span className="stat-number">4.9</span>
                 <span className="stat-label">Rating Pengguna</span>
               </div>
             </div>

@@ -1,33 +1,33 @@
 .templates {
-  background: white;
+  background: var(--bg-primary);
 }
 
 .templates-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 32px;
-  margin-bottom: 64px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
 }
 
 .template-card {
   background: white;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid rgba(58, 58, 58, 0.08);
+  border: 1px solid var(--border-light);
   transition: all 0.3s var(--ease);
 }
 
 .template-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-4px);
-  border-color: var(--terracotta);
+  border-color: var(--accent);
 }
 
 .template-image {
   position: relative;
   aspect-ratio: 3/4;
   overflow: hidden;
-  background: var(--cream-dark);
+  background: var(--bg-secondary);
 }
 
 .template-image img {
@@ -38,13 +38,13 @@
 }
 
 .template-card:hover .template-image img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .template-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(58, 58, 58, 0.7);
+  background: rgba(26, 26, 26, 0.75);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -57,65 +57,66 @@
   opacity: 1;
 }
 
-.btn-sm {
-  padding: 12px 24px;
-  font-size: 14px;
-}
-
 .template-info {
-  padding: 20px;
+  padding: var(--space-5);
 }
 
 .template-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 8px;
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .template-name {
   font-size: 18px;
   font-weight: 500;
-  color: var(--charcoal);
-  font-family: var(--font-serif);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  margin-bottom: var(--space-1);
+}
+
+.template-category {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .template-price {
   font-size: 16px;
-  font-weight: 600;
-  color: var(--terracotta);
+  font-weight: 700;
+  color: var(--accent);
   white-space: nowrap;
-}
-
-.template-category {
-  font-size: 13px;
-  color: var(--charcoal-light);
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .templates-cta {
   text-align: center;
-  padding: 48px 32px;
-  background: var(--cream-dark);
-  border-radius: 8px;
+  padding: var(--space-12) var(--space-8);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border-medium);
 }
 
 .cta-text {
   font-size: 18px;
-  color: var(--charcoal);
-  margin-bottom: 24px;
-  font-family: var(--font-serif);
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+  font-family: var(--font-display);
 }
 
 @media (max-width: 768px) {
   .templates-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-6);
   }
 
   .template-info {
-    padding: 16px;
+    padding: var(--space-4);
+  }
+
+  .templates-cta {
+    padding: var(--space-8) var(--space-6);
   }
 }
